@@ -1,0 +1,99 @@
+\documentclass{beamer}
+% Encoding and locale packages
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+% Other packages
+\usepackage{amsmath, amssymb, amsthm}
+% \usepackage{beamerthemesplit} // Activate for custom appearance
+
+% Theme selection 
+\usetheme{default}
+\usecolortheme{beaver}
+
+\title{Системы билинейных уравнений}
+\institute
+{
+	Воронежский Государственный Университет \\
+	Факультет Компьютерных Наук
+}
+\author{Морозов Евгений}
+\date{19 мая 2016 г.}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section[Outline]{}
+\frame{\tableofcontents}
+
+\section{Общий случай}
+\subsection{Понятие системы билинейных уравнений}
+\frame
+{
+  \frametitle{Основные понятия}
+  
+	\begin{itemize}
+		\item \textbf{Система билинейных уравнений} "--- это система уравнений следующего вида:
+		$$
+			\sum_{j = 1}^{m} \sum_{k = 1}^{n} a_{i j k} r_j s_k = d_i,~\text{для } i = 
+			1,\dots,l
+		$$
+		\item Компактная запись параметров системы "--- $(l; m, n)$
+		\item Система называется \textbf{однородной}, если $\textbf{d} = \textbf{0}$. 
+	 	\item В однородных 	системах всегда имеют место \textbf{тривиальные} решения: $\textbf{s} =  
+			  \textbf{0}$ или $\textbf{r} = \textbf{0}$.
+		\item Система, имеющие только тривиальные решения называется \textbf{регулярной}.
+		\item В данной работе рассматриваются только однородные системы.
+	\end{itemize}
+}
+\subsection{Связь с задачей об однородности}
+\frame
+{
+	\frametitle{Задача об однородности}
+	
+	В задаче об однородности аффинных поверхностей возникают 
+	системы однородных билинейных уравнений особого вида : 
+	$$l = m + n - 1,\, m = n.$$ 
+	Особый интерес представляют нерегулярные системы.
+	Примеры возникающих систем:
+	\begin{itemize}
+		\item Случай $(15; 8, 8)$ "--- все стандартные методы решения нелинейных систем (например, базис Грёбнера) не дают результатов. 
+		\item В связи с этим имеет смысл исследовать более простой, <<модельный>> случай $(3;2,2)$, чтобы понять природу нерегулярных систем.
+	\end{itemize}
+}
+\section{Частный случай}
+\subsection{Постановка задачи}
+\frame
+{
+	\frametitle{Случай $(3; 2, 2)$}
+	Любая билинейная система является линейной по одному из наборов переменных. Для случая 	
+	$(3;2, 2)$:
+	$$
+		\underbrace{
+		\begin{pmatrix}
+			a_{1 1} s_1 + a_{1 2} s_2 & a_{1 3} s_1 + a_{1 4} s_2 \\
+			a_{2 1} s_1 + a_{2 2} s_2 & a_{2 3} s_1 + a_{2 4} s_2 \\
+			a_{3 1} s_1 + a_{3 2} s_2 & a_{3 3} s_1 + a_{3 4} s_2 \\
+		\end{pmatrix}}_{A}
+		\times
+		\begin{pmatrix}
+			r_1 \\
+			r_2
+		\end{pmatrix}=
+		\begin{pmatrix}
+			0 \\
+			0 \\
+			0
+		\end{pmatrix}
+	$$
+	Эта система имеет нетривиальные решения, если $\text{rank}\,A 
+	\ne 3$, что означает, что все миноры третьего порядка в матрице $A$ равны нулю. 
+}
+\subsection{Достаточное условие регулярности системы}
+\frame
+{
+	\frametitle{Достаточное условие регулярности системы}
+	
+}
+\end{document}
