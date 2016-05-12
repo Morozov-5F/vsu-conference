@@ -1,24 +1,24 @@
-\documentclass{beamer}
+\documentclass[russian,hyperref={unicode}]{beamer}
 % Encoding and locale packages
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[english, russian]{babel}
+\usepackage[russian]{babel}
 % Other packages
 \usepackage{amsmath, amssymb, amsthm}
 % \usepackage{beamerthemesplit} // Activate for custom appearance
 
 
 % Theme selection 
-\usetheme{default}
-\usecolortheme{beaver}
+\usetheme[sectionpage=none, numbering=fraction]{metropolis}
+%\usecolortheme{beaver}
 
-\setbeamertemplate{navigation symbols}
-{%
-    \usebeamerfont{footline}%
-    \usebeamercolor[fg]{footline}%
+% \setbeamertemplate{navigation symbols}
+% {%
+    % \usebeamerfont{footline}%
+    % \usebeamercolor[fg]{footline}%
 %    \hspace{1em}%
-    \insertframenumber/\inserttotalframenumber
-}	
+    % \insertframenumber/\inserttotalframenumber
+% }	
 
 \title{Системы билинейных уравнений}
 \institute
@@ -33,7 +33,7 @@
 
 \frame{\titlepage}
 
-\section[Outline]{}
+\section[Содержание]{}
 \frame
 {
 	\frametitle{Содержание}
@@ -119,7 +119,6 @@
 	Пусть $d_{k, m, n}$ "--- минор второго порядка в матрице $A$, получаемый вычеркиванием строки $k$ 
 	и столбцов $m$ и $n$.
 	
-	
 	Тогда достаточное условие регулярности системы формулируется так: 
 	\begin{block}{Теорема:}
 		Если определитель следующего вида не равен нулю, то система является 
@@ -138,22 +137,65 @@
 \frame
 {
 	\frametitle{Канонический вид системы}
-	TOP KEK
+	\begin{block}{Теорема:}
+	Пусть дана система билинейных уравнений с параметрами $(3, 2, 2)$ и матрица одной из билинейных форм невырождена. Тогда эта система приводима к одному из четырех канонических видов: 
+	\begin{align*}
+		&
+		\begin{cases}
+		 	r_1 s_1 = 0 \\
+		 	r_2 s_2 = 0 \\
+		 	r_1 s_2 \cos \varphi + r_2 s_1 \sin \varphi = 0 &
+		\end{cases} &, &
+		\begin{cases}
+			r_1 s_1 + r_2 s_2 = 0 \\
+			a'_{1}r_1 s_1 + a'_2 r_1 s_2 + a'_3 r_2 s_1 = 0
+		\end{cases},
+		\\
+		&
+		\begin{cases}
+			r_1 s_1 + r_2 s_2 = 0 \\
+			r_1 s_1 = 0 \\
+			s_1 (a'_{1} r_1 + a'_{2} r_2) = 0
+		\end{cases} &, &
+		\begin{cases}
+			r_1 s_1 + r_2 s_2 = 0 \\ 
+			r_1 s_2 - r_2 s_1 = 0 \\ 
+			s_1 (a'_{1} r_1 + a'_{2} r_2) = 0
+		\end{cases}
+	\end{align*}
+	\end{block}
 }
 \section{Метод мономно-минорной матрицы}
 \subsection{Описание метода}
 \frame
 {
 	\frametitle{Метод мономно-минорной матрицы (МММ)}
-	TOP KEK(2)
+	Этот метод был введен проф. А.В. Лободой для исследования 
+	нетривиальных решений в однородных системах билинейных уравнений.
+
+	Метод заключается в построении особой системы \textit{линейных} 
+	уравнений на основе исходной. Решая новую систему, можно получить нетривиальные решения  соответствующей билинейной системы или доказать её регулярность.
+
+	\begin{alertblock}{Замечание:}
+		К сожалению, этот метод не дает должных результатов на больших системах. В случае $(15; 8, 8)$ возникакет матрица $6435 \times 6435$, которую необходимо решить аналитически. С этой задачей не справился ни один математический пакет.
+	\end{alertblock}
 }
 \section{Литература}
 \frame
 {
 	\frametitle{Литература}
-%	\bibliographystyle{amsalpha}
-%	\bibliography{} 
-	\begin{thebibliography}{10}  		\bibitem{KostrikinLA}[Кострикин, 1742]    	Christian Goldbach.    	\newblock A problem we should try to solve before the ISPN ’43 deadline,    	\newblock \emph{Letter to Leonhard Euler}, 1742. 	\end{thebibliography}
+	\begin{thebibliography}{10}
+	\beamertemplatebookbibitems
+  		\bibitem{kostrikin_va1}
+    	Кострикин А.И. 
+    	\newblock {\em Введение в алгебру. Часть I. Основы алгебры}.
+    	\newblock М.: Физико-математическая литература, 2000.
+	\beamertemplatearticlebibitems
+		\bibitem{stanford}
+    	S. Cohen, C. Tomasi
+    	\newblock {\em Systems of Bilinear Equations}.
+    	\newblock Computer Science Department, Stanford University
+    \end{thebibliography}
 }
 \frame
 {
